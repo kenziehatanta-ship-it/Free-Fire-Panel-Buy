@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FF PANEL IOS - PREMIUM BLUE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f0f9ff;
+            background-image: radial-gradient(at 0% 0%, hsla(202,100%,91%,1) 0, transparent 50%), 
+                              radial-gradient(at 50% 0%, hsla(199,100%,84%,1) 0, transparent 50%);
+            color: #1e293b;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-shopee {
+            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+            box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.3);
+        }
+
+        .shopee-orange {
+            color: #ee4d2d;
+        }
+
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .animate-pulse-soft {
+            animation: pulse-soft 2s infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+    <div class="w-full max-w-md">
+        <!-- Main Logo / Image -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-white rounded-3xl shadow-xl mb-4 border-2 border-sky-100">
+                <i class="fas fa-microchip text-4xl text-sky-500"></i>
+            </div>
+            <h1 class="text-3xl font-extrabold tracking-tight text-slate-800">FREE FIRE <span class="text-sky-600">PANEL</span></h1>
+            <p class="text-slate-500 font-medium mt-1 uppercase tracking-widest text-xs">iOS Edition v1.123.1</p>
+        </div>
+
+        <!-- Product Card -->
+        <div class="glass-card rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-sky-500 text-white text-[10px] font-bold px-4 py-1.5 rounded-bl-2xl">
+                ORIGINAL
+            </div>
+
+            <div class="mb-8">
+                <div class="flex items-baseline gap-2 mb-1">
+                    <span class="text-4xl font-extrabold text-slate-800">Rp 25.000</span>
+                    <span class="text-slate-400 line-through text-sm">Rp 150.000</span>
+                </div>
+                <p class="text-emerald-600 font-bold text-sm flex items-center gap-1">
+                    <i class="fas fa-check-circle"></i> Stok Tersedia - Lisensi Permanen
+                </p>
+            </div>
+
+            <!-- Features List -->
+            <div class="space-y-4 mb-8">
+                <div class="flex items-center gap-4 p-3 bg-white/50 rounded-2xl">
+                    <div class="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center text-sky-600">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-slate-800">Anti-Ban System</p>
+                        <p class="text-[11px] text-slate-500 text-xs">Sangat aman untuk akun utama (Main Acc).</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 p-3 bg-white/50 rounded-2xl">
+                    <div class="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center text-sky-600">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-slate-800">Shortcut Gesture</p>
+                        <p class="text-[11px] text-slate-500 text-xs italic">Ketuk 2x pakai 3 jari di layar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <button onclick="openPaymentFlow()" class="w-full btn-shopee text-white font-bold py-5 rounded-2xl animate-pulse-soft flex items-center justify-center gap-3 transition-all active:scale-95 mb-4">
+                <i class="fas fa-shopping-bag"></i>
+                BELI SEKARANG
+            </button>
+            
+            <p class="text-center text-[10px] text-slate-400 font-medium px-4">
+                Klik tombol di atas untuk membuka aplikasi Shopee/ShopeePay secara otomatis.
+            </p>
+        </div>
+
+        <!-- Warning/Info Footnote -->
+        <div class="mt-6 flex items-center justify-center gap-4 text-slate-400 text-xs font-medium">
+            <span class="flex items-center gap-1"><i class="fas fa-lock text-sky-400"></i> Secure Payment</span>
+            <span class="flex items-center gap-1"><i class="fas fa-bolt text-sky-400"></i> Fast Delivery</span>
+        </div>
+    </div>
+
+    <!-- Payment Modal Overlay -->
+    <div id="paymentModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm hidden items-center justify-center z-50 p-6">
+        <div class="bg-white rounded-[2rem] w-full max-w-sm p-8 shadow-2xl transform transition-all">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-wallet text-2xl text-[#ee4d2d]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800">Instruksi Pembayaran</h3>
+                <p class="text-sm text-slate-500 mt-2">Silahkan kirim tepat <span class="font-bold text-slate-800">Rp 25.000</span> ke:</p>
+            </div>
+
+            <div class="bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl p-4 mb-6 text-center">
+                <p class="text-xs text-slate-400 uppercase font-bold tracking-tighter mb-1">Nomor ShopeePay</p>
+                <p class="text-xl font-extrabold text-slate-800 select-all">+62 851-8516-0051</p>
+            </div>
+
+            <div class="space-y-3">
+                <button onclick="verifyPayment()" class="w-full bg-slate-900 text-white font-bold py-4 rounded-xl hover:bg-slate-800 transition-colors">
+                    SAYA SUDAH BAYAR
+                </button>
+                <button onclick="closeModal()" class="w-full text-slate-400 font-bold py-2 text-sm">
+                    Batal
+                </button>
+            </div>
+            
+            <p class="mt-6 text-[10px] text-center text-slate-400 italic">
+                *Sistem akan memverifikasi bukti pembayaran secara otomatis setelah Anda klik tombol konfirmasi.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const DOWNLOAD_URL = "https://www.mediafire.com/file/yrtzbdnyk7xrcql/Free+Fire+_1.123.1_1775880371.ipa/file";
+        const SHOPEE_DEEPLINK = "shopeefi://"; // Skema dasar untuk memicu app Shopee
+
+        function openPaymentFlow() {
+            // Mencoba membuka aplikasi Shopee
+            window.location.href = SHOPEE_DEEPLINK;
+            
+            // Setelah jeda singkat, tampilkan modal instruksi nomor
+            setTimeout(() => {
+                document.getElementById('paymentModal').style.display = 'flex';
+            }, 1000);
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        function verifyPayment() {
+            const modalBox = document.querySelector('#paymentModal > div');
+            
+            // Tampilan Loading Verifikasi
+            modalBox.innerHTML = `
+                <div class="py-12 text-center">
+                    <div class="w-12 h-12 border-4 border-sky-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+                    <h3 class="text-lg font-bold text-slate-800">Memverifikasi Saldo...</h3>
+                    <p class="text-sm text-slate-500 mt-2">Jangan tutup halaman ini.</p>
+                </div>
+            `;
+
+            // Simulasi Delay Verifikasi (Agar terlihat asli & mencegah spam)
+            setTimeout(() => {
+                modalBox.innerHTML = `
+                    <div class="py-10 text-center">
+                        <div class="w-20 h-20 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-check-double text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800">Pembayaran Sah!</h3>
+                        <p class="text-sm text-slate-500 mt-2 mb-8">Lisensi telah diaktifkan. Mengunduh file...</p>
+                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-full transition-all duration-[3000ms]" style="width: 100%"></div>
+                        </div>
+                    </div>
+                `;
+
+                // Redirect ke MediaFire setelah 3 detik
+                setTimeout(() => {
+                    window.location.href = DOWNLOAD_URL;
+                }, 3000);
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
+
+```
